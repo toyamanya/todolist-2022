@@ -9,7 +9,12 @@ const newItemName = ref("");
 const newItemPrice = ref(0);
 
 const addItem = () => {
+  if (newItemName.value.length === 0 || newItemPrice.value <= 0) {
+    return;
+  }
   items.value.push({ name: newItemName.value, price: newItemPrice.value });
+  newItemName.value = "";
+  newItemPrice.value = 0;
 };
 </script>
 

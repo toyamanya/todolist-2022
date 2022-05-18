@@ -6,10 +6,13 @@ const todos = ref([
   { name: "プログラミング", done: false },
 ]);
 const newTodoName = ref("");
-const newTodoChecked = ref(false);
 
 const addTodo = () => {
-  todos.value.push({ name: newTodoName.value, done: newTodoChecked.value });
+  if (newTodoName.value.length === 0) {
+    return;
+  }
+  todos.value.push({ name: newTodoName.value, done: false });
+  newTodoName.value = "";
 };
 </script>
 
